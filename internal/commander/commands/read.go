@@ -1,16 +1,13 @@
 package commands
 
-import (
-	"fmt"
-)
+import common "tgbot/internal/commander/commands/common"
 
 
 type Read struct {
-	CMDModel
+	common.CMDModel
 }
 
 func (c *Read) Execute() error {
-	fmt.Print("Read")
 	return nil
 }
 
@@ -20,7 +17,7 @@ func(c *Read) Info() string {
 
 func NewReadCommand() *Read {
 	return &Read {
-		CMDModel {
+		common.CMDModel {
 			CmdPath: "/read",
 			Title: "Прочитать сущность",
 		},

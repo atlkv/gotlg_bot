@@ -1,8 +1,9 @@
 package commands
 
+import common "tgbot/internal/commander/commands/common"
 
 type Update struct {
-	CMDModel
+	common.CMDModel
 }
 
 func (c *Update) Execute() (string, error) {
@@ -19,7 +20,7 @@ func(c *Update) Info() string {
 
 func NewUpdateCommand() *Update {
 	return &Update {
-		CMDModel {
+		common.CMDModel {
 			CmdPath: "/read",
 			Title: "Read entity",
 		},

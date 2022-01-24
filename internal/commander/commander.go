@@ -2,13 +2,14 @@ package commander
 
 import (
 	"fmt"
+	common "tgbot/internal/commander/commands/common"
 	cmd "tgbot/internal/commander/commands"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
 type Commander struct {
 	tgbot	*tgbotapi.BotAPI
-	commands map[string]cmd.CMDExecuter
+	commands map[string]common.CMDExecuter
 }
 
 func NewCommander(b *tgbotapi.BotAPI) *Commander{
@@ -17,7 +18,7 @@ func NewCommander(b *tgbotapi.BotAPI) *Commander{
 	
 	return &Commander{
 		tgbot: b,
-		commands: map[string]cmd.CMDExecuter{
+		commands: map[string]common.CMDExecuter{
 			create.GetPath(): create,
 			update.GetPath(): update,
 		},
@@ -95,7 +96,7 @@ func (c *Commander) getAvailableCommands() string {
 	return info
 }
 
-func (c *Commander) GetCommand(command string) (cmd.CMDExecuter, bool) {
+func (c *Commander) GetCommand(command string) (common.CMDExecuter, bool) {
 	cmd, err := c.commands[command] 
 	
 	return cmd, err

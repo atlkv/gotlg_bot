@@ -1,16 +1,13 @@
 package commands
+import common "tgbot/internal/commander/commands/common"
 
-import (
-	"fmt"
-)
 
 
 type Delete struct {
-	CMDModel
+	common.CMDModel
 }
 
 func (c *Delete) Execute() error {
-	fmt.Print("Delete")
 	return nil
 }
 
@@ -20,7 +17,7 @@ func(c *Delete) Info() string {
 
 func NewDeleteCommand() *Delete {
 	return &Delete {
-		CMDModel {
+		common.CMDModel {
 			CmdPath: "/delete",
 			Title: "Удалить сущность",
 		},

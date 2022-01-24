@@ -1,8 +1,8 @@
 package commands
-
+import common "tgbot/internal/commander/commands/common"
 
 type Create struct {
-	CMDModel
+	common.CMDModel
 }
 
 func (c *Create) Execute() (string, error) {
@@ -19,7 +19,7 @@ func(c *Create) Info() string {
 
 func NewCreateCommand() *Create {
 	return &Create {
-		CMDModel {
+		common.CMDModel {
 			CmdPath: "/create",
 			Title: "Create entity",
 		},
