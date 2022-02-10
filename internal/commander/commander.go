@@ -9,7 +9,7 @@ import (
 
 type Commander struct {
 	tgbot	*tgbotapi.BotAPI
-	commands map[string]common.CMDExecuter
+	commands map[string]common.CMDExecutor
 }
 
 func NewCommander(b *tgbotapi.BotAPI) *Commander{
@@ -18,7 +18,7 @@ func NewCommander(b *tgbotapi.BotAPI) *Commander{
 	
 	return &Commander{
 		tgbot: b,
-		commands: map[string]common.CMDExecuter{
+		commands: map[string]common.CMDExecutor{
 			create.GetPath(): create,
 			update.GetPath(): update,
 		},
@@ -96,7 +96,7 @@ func (c *Commander) getAvailableCommands() string {
 	return info
 }
 
-func (c *Commander) GetCommand(command string) (common.CMDExecuter, bool) {
+func (c *Commander) GetCommand(command string) (common.CMDExecutor, bool) {
 	cmd, err := c.commands[command] 
 	
 	return cmd, err

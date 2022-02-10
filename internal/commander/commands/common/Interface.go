@@ -1,7 +1,7 @@
 package commands
 
-type CMDExecuter interface {
+type CMDExecutor interface {
 	Execute() (string, error)
 	GetPath() string
-	Info() string	
+	Info() string
 }
